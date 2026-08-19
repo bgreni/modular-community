@@ -1,6 +1,6 @@
 context:
-  version: "0.1.0"
-  mojo_version: "=0.26.1"
+  version: "0.8.0"
+  mojo_version: ">=1.0.0, <1.1.0"
 
 package:
   name: "argmojo"
@@ -8,13 +8,13 @@ package:
 
 source:
   - git: https://github.com/forfudan/argmojo.git
-    rev: 6db272c433171f1bf5e158d24628581f248aefcc
+    rev: 2ba77c1be364e49fe7db88c724dd0f9a25ed3a44
 
 build:
   number: 0
   script:
     - mkdir -p ${PREFIX}/lib/mojo
-    - mojo package src/argmojo -o ${{ PREFIX }}/lib/mojo/argmojo.mojopkg
+    - mojo precompile src/argmojo -o ${{ PREFIX }}/lib/mojo/argmojo.mojoc
 
 requirements:
   host:
@@ -28,7 +28,7 @@ about:
   homepage: https://github.com/forfudan/argmojo
   license: Apache-2.0
   license_file: LICENSE
-  summary: A command-line argument parser library for Mojo.
+  summary: A feature-rich command-line argument parser library for Mojo, with both builder and struct-based declarative APIs.
   repository: https://github.com/forfudan/argmojo.git
 
 extra:
